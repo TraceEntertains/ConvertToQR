@@ -1,0 +1,1 @@
+7z a -tzip ConvertToQR.xpi .\ConvertToQR\* -x!.vs

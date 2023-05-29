@@ -1,0 +1,42 @@
+{
+  "manifest_version": 2,
+  "name": "Convert to QR",
+  "version": "1.0",
+  "description": "Lets you convert links to QR codes by right-clicking on them.",
+  "icons": {
+    "24": "icons/icon.svg",
+    "32": "icons/icon.svg",
+    "40": "icons/icon.svg",
+    "48": "icons/icon.svg",
+    "56": "icons/icon.svg",
+    "64": "icons/icon.svg"
+  },
+  "permissions": [
+    "contextMenus",
+    "tabs"
+  ],
+  "background": {
+    "scripts": [ "background.js" ],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_title": "Convert to QR"
+  },
+  "content_scripts": [
+    {
+      "matches": [ "https://*/*", "http://*/*", "file:///*" ],
+      "js": [ "content_script.js", "thirdparty/qrcode/qrcode.min.js" ]
+    }
+  ],
+  "web_accessible_resources": [
+    "overlay.html",
+    "overlay.css",
+    "overlay.js"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "converttoqr@traceentertains",
+      "strict_min_version": "48.0"
+    }
+  }
+}
